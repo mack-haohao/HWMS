@@ -33,7 +33,6 @@ jobs:
             --onefile `
             --windowed `
             --name "华耕嘉成贴纸打印" `
-            --add-data "NotoSansSC-Regular.ttf;." `
             --hidden-import win32api `
             --hidden-import win32print `
             --hidden-import reportlab `
