@@ -1,0 +1,24 @@
+{
+  "_说明": {
+    "paper_width_mm": "贴纸宽度（毫米），默认150",
+    "paper_height_mm": "贴纸高度（毫米），默认100",
+    "location_x_mm": "收货地址文字的左边距（毫米），从贴纸左边缘算起",
+    "location_y_mm": "收货地址文字的上边距（毫米），从贴纸上边缘算起",
+    "box_info_x_mm": "箱号文字的左边距（毫米），从贴纸左边缘算起",
+    "box_info_y_mm": "箱号文字的上边距（毫米），从贴纸上边缘算起",
+    "font_size_location": "收货地址文字大小（磅/pt）",
+    "font_size_box": "箱号文字大小（磅/pt）",
+    "window_width": "主窗口宽度（像素）",
+    "window_height": "主窗口高度（像素）"
+  },
+  "paper_width_mm": 150,
+  "paper_height_mm": 100,
+  "location_x_mm": 20,
+  "location_y_mm": 70,
+  "box_info_x_mm": 20,
+  "box_info_y_mm": 80,
+  "font_size_location": 14,
+  "font_size_box": 14,
+  "window_width": 540,
+  "window_height": 500
+}

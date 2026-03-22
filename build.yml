@@ -1,0 +1,50 @@
+name: Build LabelPrinter EXE
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install wxPython reportlab requests pywin32 pyinstaller
+
+      - name: Copy font asset
+        shell: pwsh
+        run: |
+          # 字体直接打包进 exe（如果有的话）
+          if (Test-Path "NotoSansSC-Regular.ttf") {
+            echo "Font found, will bundle"
+          }
+
+      - name: Build EXE
+        shell: pwsh
+        run: |
+          pyinstaller `
+            --onefile `
+            --windowed `
+            --name "华耕嘉成贴纸打印" `
+            --add-data "NotoSansSC-Regular.ttf;." `
+            --hidden-import win32api `
+            --hidden-import win32print `
+            --hidden-import reportlab `
+            --hidden-import requests `
+            label_printer.py
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: label-latest
+          name: "贴纸打印工具 最新构建"
+          files: dist/华耕嘉成贴纸打印.exe
+          prerelease: true
